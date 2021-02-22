@@ -95,6 +95,7 @@ const MultipleSymbol = userNum1*userNum2
 const DivisionSymbol = userNum1/userNum2
 let p;
 
+
 do {
     if (userSymbol === '+') {
         alert(PlusSymbol)
@@ -104,11 +105,10 @@ do {
         alert(MultipleSymbol)
     } else if (userSymbol === '/') {
         alert(DivisionSymbol)
-    }else{
-        continue
     }
     p=confirm('Бажаєте повторити?')
 } while (p!==false)
+
 
 
 
