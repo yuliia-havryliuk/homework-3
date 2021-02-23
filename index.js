@@ -1,6 +1,5 @@
 // 1.  Знайдіть суму всіх цифр від 1 до 100.
 
-
 const LastNumber = 100;
 let i = 1;
 let n = 0;
@@ -12,12 +11,11 @@ while(i <= LastNumber) {
 }
 console.log(n);
 
-
 //2.  Є масив [1, 2, 3, 4, 5]. З допомогою  цикла for вивести всі елементи на екран.
 
-let arr = [1,2,3,4,5];
-for(let i=0; i<arr.length;i++){
-    alert(arr[i])
+let myArr = [1,2,3,4,5];
+for(let i=0; i<myArr.length;i++){
+    alert(myArr[i])
 }
 
 // 3. Є масив [-1, 22, 3, 44, 5]. Виведіть максимальне значення
@@ -31,38 +29,22 @@ for(let i=0;i<newArray.length;i++){
 
 // 4. Попросити юзера ввести 8 чисел і скільки він ввів додатніх, відємних та нулів. Вивести статистику на екран. Також досмтатньо тільки 1 змінної для отримання даних від юзера.
 
-let userNumbers = [];
-let t;
-for(let i=0; i<8;i++){
-    t = +prompt('Введіть число:')
-    userNumbers.push([t])
+let arr= [];
+let positiveNum =0;
+let negativeNum =0;
+let zeroNum =0;
+for(let i=0; i<8; i++){
+    arr[i]= +prompt('Введіть число:');
 
-}
-console.log(userNumbers)
-
-/*
-if(userNumbers[t]===0){
-    alert('Ось скільки нулів знайдено:')
-} else if(userNumbers[t]<0){
-    alert('Ось скільки від\'мних чисел знайдено:')
-}else if(userNumbers[t]>0){
-    alert('Ось скільки додатніх чисел знайдено:')
+    if(arr[i] === 0){
+        zeroNum=zeroNum+1
+    } else if(arr[i]<0){
+        negativeNum=negativeNum+1
+    } else if(arr[i]>0){
+        positiveNum=positiveNum+1
     }
-*/
-
-switch (userNumbers) {
-    case (t===0):
-        alert('Ось скільки нулів знайдено:');
-        break;
-    case (t>0):
-        alert('Ось скільки додатніх чисел знайдено:')
-        break;
-    case(t<0):
-        alert('Ось скільки від\'мних чисел знайдено:')
-        break;
-    default:"Нічого не знайдено"
 }
-
+alert(`Ось скільки введено нулів: ${zeroNum}, ось скільки введено від'ємних значень ${negativeNum}, ось скільки введено додатніх значень:${positiveNum}`)
 
 // 5. Надрукуйте табличку множення для числа  8 від 1 до 9. 8 х 1 = 8
 
@@ -85,87 +67,30 @@ for(let i=0;i<newArr.length;i++){
 
 // 7. Створити калькулятор який буде зациклений. Запитати у юзера 2 числа та знак , провести математичну операцію, далі вивести результат і спитатись чи хоче юзер повторити?
 
-let userNum1 = +prompt('Введіть перше число:')
-let userNum2 = +prompt('Введіть друге число:')
-let userSymbol = prompt('Введіть знак бажаної дії:')
-
-const PlusSymbol = userNum1+userNum2
-const MinusSymbol = userNum1-userNum2
-const MultipleSymbol = userNum1*userNum2
-const DivisionSymbol = userNum1/userNum2
-let p;
-
-
 do {
-    if (userSymbol === '+') {
-        alert(PlusSymbol)
-    } else if (userSymbol === '-') {
-        alert(MinusSymbol)
-    } else if (userSymbol === '*') {
-        alert(MultipleSymbol)
-    } else if (userSymbol === '/') {
-        alert(DivisionSymbol)
+    let userNum1 = +prompt('Введіть перше число:')
+    let userNum2 = +prompt('Введіть друге число:')
+    let userSymbol = prompt('Введіть знак бажаної дії:')
+
+    const PlusSymbol = userNum1+userNum2
+    const MinusSymbol = userNum1-userNum2
+    const MultipleSymbol = userNum1*userNum2
+    const DivisionSymbol = userNum1/userNum2
+
+    switch (userSymbol) {
+        case '+':
+            alert(PlusSymbol);
+            break;
+        case '-':
+            alert(MinusSymbol);
+            break;
+        case '*':
+            alert(MultipleSymbol);
+            break;
+        case '/':
+            alert(DivisionSymbol);
+            break;
+        default:
+            'Немає жодних значень';
     }
-    p=confirm('Бажаєте повторити?')
-} while (p!==false)
-
-
-
-
-
-/*
-do{
-switch (userSymbol) {
-    case '+':
-        alert(PlusSymbol);
-        break;
-    case '-':
-        alert(MinusSymbol);
-        break;
-    case '*':
-        alert(MultipleSymbol);
-        break;
-    case '/':
-        alert(DivisionSymbol);
-        break;
-    default:
-        'Немає жодних значень';
-}n=confirm('Бажаєте повторити?')
-    if(n==true)continue;
-}
-while (n!==false)
-*/
-
-
-
-
-//З класної роботи:
-
-//!1. Виводити число поки юзер не натисне окей
-
-/*
-let x;
-let n;
-
-do{
-    x = +prompt('Введіть число:')
-    n = confirm(`Ви хотіли це число? ${x}`)
-} while(n!==true)
-*/
-
-//ФІБОНАЧІ
-/*
-let x=0;
-const Maxloop = 150;
-let y=1;
-let f;
-for (let i =0; i<Maxloop; i++){
-    f=x+y;
-    x=y;
-    y=f;
-    if(f>100){
-        break
-    } else {
-        console.log(f)
-    }
-}*/
+} while (confirm('Бажаєте повторити?'))
